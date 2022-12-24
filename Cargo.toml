@@ -2,16 +2,29 @@
 name = "av-projectm-gst-plugin"
 version = "0.1.0"
 edition = "2021"
+rust-version = "1.63"
+authors = ["AnomieVision <anomievision@gmail.com.com>"]
+description = "ProjectM GST Plugin"
+license = "	LGPL-3.0-or-later"
+repository = "https://github.com/anomievision/av-projectm-gst-plugin"
+keywords = ["visualization", "audio", "sound",  "projectm"]
+categories = ["multimedia", "multimedia::video", "multimedia::audio"]
+readme = "README.md"
 
 [dependencies]
 gst = { package = "gstreamer", git = "https://gitlab.freedesktop.org/gstreamer/gstreamer-rs" }
 gst-base = { package = "gstreamer-base", git = "https://gitlab.freedesktop.org/gstreamer/gstreamer-rs" }
 gst-video = { package = "gstreamer-video", git = "https://gitlab.freedesktop.org/gstreamer/gstreamer-rs" }
+gst_gl = { package = "gstreamer-gl", git = "https://gitlab.freedesktop.org/gstreamer/gstreamer-rs", features = ["v1_16"], optional = true }
+gst-audio = { package = "gstreamer-audio", git = "https://gitlab.freedesktop.org/gstreamer/gstreamer-rs" }
+
 once_cell = "1.16"
+
+gtk = { package = "gtk4", git = "https://github.com/gtk-rs/gtk4-rs" }
 
 [lib]
 name = "avprojectmgstplugin"
-crate-type = ["cdylib"]
+crate-type = ["cdylib", "rlib"]
 path = "src/lib.rs"
 
 [build-dependencies]
